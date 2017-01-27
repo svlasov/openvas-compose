@@ -1,0 +1,15 @@
+version: '3'
+services: 
+  openvas:
+    image: svlasov/openvas-compose-openvas
+    build: 
+      context: ./openvas
+      # dockerfile: ./openvas/Dockerfile
+    # socat UNIX-LISTEN:/var/run/postgresql/.s.PGSQL.5432,fork,reuseaddr TCP4:db:5432 &
+    links: 
+     - "postgres:db"
+    volumes: 
+     - "./openvas/bin:/openvas"
+    command: "bash /openvas/setup.sh"
+  postgres:
+    image: postgres
