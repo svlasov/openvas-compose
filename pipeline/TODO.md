@@ -3,12 +3,14 @@
  - run openvas
     - run openvasmd
         - build image with all included: # docker build -f pipeline/build/master
-            - wget, socat
+            - wget, socat, nmap, git, python-pip
             - openvasmd, openvassd, gsad...
             - setup: - add user, db
             - postgresql
             - redis
-            - worker code
+            - worker code 
+                - ADD git-url code 
+                - pip install -r requirements.txt
             - worker cfg
         - update defs (additional image: ???)
             - start pg, openvasmd
