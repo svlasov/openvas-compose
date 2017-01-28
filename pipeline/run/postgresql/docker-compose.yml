@@ -1,0 +1,7 @@
+version: '3'
+services: 
+  db:
+    image: svlasov/openvas-master
+    command: bash /scripts/start-postgresql.sh
+    ports:
+     - "5432:5432"

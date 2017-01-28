@@ -1,8 +1,12 @@
 version: '3'
 services: 
   openvas:
-    image: svlasov/openvas-compose-openvas
+    image: svlasov/openvas
+    build: 
+      context: openvas
     links: 
      - "postgres:db"
   postgres:
+    image: postgres
+  dbvolume:
     image: postgres
